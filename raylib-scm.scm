@@ -664,8 +664,8 @@
      MAGENTA
      RAYWHITE)
 
-  (import chicken scheme foreign foreigners lolevel)
-  (use foreigners lolevel)
+  (import (chicken base) scheme (chicken foreign) foreigners (chicken gc) (chicken memory))
+
 
   (include "raylib-macros.scm")
 

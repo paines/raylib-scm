@@ -1,5 +1,5 @@
-(import chicken scheme foreign foreigners lolevel)
-(use foreigners lolevel)
+(import (chicken base) scheme (chicken foreign) foreigners)
+
 
 (foreign-declare "#include <raylib.h>")
 
@@ -25,7 +25,7 @@
 (define-foreign-enum-type (config-flag unsigned-short)
   (config-flag->int int->config-flag)
   ; Set to show raylib logo at startup
-  ((flag-show-logo          config-flag/flag-show-logo)          FLAG_SHOW_LOGO)
+;  ((flag-show-logo          config-flag/flag-show-logo)          FLAG_SHOW_LOGO)
   ; Set to run program in fullscreen
   ((flag-fullscreen-mode    config-flag/flag-fullscreen-mode)    FLAG_FULLSCREEN_MODE)
   ; Set to allow resizable window

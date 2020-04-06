@@ -1,0 +1,6 @@
+((license "GPL-3")
+ (category web)
+ (dependencies srfi-1 srfi-13 defstruct format records miscmacros regex vlist)
+ (author "Yuriy Al. Shirokov, Anes Lihovac")
+ (synopsis "Raylib bindings for Chicken Scheme 5.2")
+ (components (extension raylib-scm)))

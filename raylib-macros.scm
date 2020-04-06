@@ -4,6 +4,13 @@
 ; ((c-pointer (struct StructType)) structName) to "*structName"
 ; Converts signatures like
 ; (int name) or ((c-pointer void) name) to "name"
+
+(import (chicken syntax))
+(import-for-syntax srfi-1)
+(import-for-syntax srfi-13)
+(import-for-syntax format)
+
+
 (define-for-syntax (get-argument signature)
   (let ((name (symbol->string (cadr signature))))
     (if (and (list? (car signature))
