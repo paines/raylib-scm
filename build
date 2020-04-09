@@ -1,0 +1,13 @@
+#!/bin/sh
+
+raylib_cflags="`pkg-config --cflags raylib`"
+
+if test "$?" -ne "0"; then
+    echo '' 1>&2
+    echo 'libraylib does not appear to be installed!' 1>&2
+    exit 1
+fi
+
+raylib_ldflags="`pkg-config --libs raylib`"
+
+"$CHICKEN_CSC" $@ -C "$raylib_cflags" -L "$raylib_ldflags"
