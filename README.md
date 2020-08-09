@@ -1,6 +1,14 @@
 # raylib-scm
 
-Chiken Scheme bindings for Raylib Game Library (https://www.raylib.com/, https://github.com/raysan5/raylib).
+Chiken Scheme 5 bindings for Raylib Game Library (https://www.raylib.com/, https://github.com/raysan5/raylib).
+
+
+This is a work in progress and so far only basic_window.scm is ported and runable out-of-the-box. This is because since Chicken Scheme Version 5 the import was 
+heavily rewritten and all exmaples must be adapted.
+
+Keep in mind that raylib itself must be compiled as a shared library via  build\cmake -DSHARED=1 ..
+Also ldconfig seems to be mandatory in order that libs are found in /usr/local/lib
+
 
 [![License](https://img.shields.io/github/license/yashrk/raylib-scm.svg?style=social)](LICENSE)
 
@@ -65,21 +73,11 @@ In the root directory of the project:
 ```
 sudo chicken-install
 ```
-
+This will pull, compile and install a bunch of depencies like: defstruct, format, records, miscmacros, regex and vlist
 ## Usage
 
 See `examples` directory.
 
-In order to compile the examples, a bunch of 3rd party chicken scheme egg is needed. Do:
-
-```
- chicken-install defstruct format records miscmacros regex vlist
-```
-
-Some of the examples, of course, use graphics and need some libraries to run. You can achieve this via
-```
-LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libX11.so.6 ./yourDemoApp
-```
 
 ## ToDo
 
@@ -88,6 +86,7 @@ LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libX11.so.6 ./yourDemoApp
  - [ ] Allocate C objects in memory managed by Chicken: it's probably much more efficient than `malloc()`
  - [ ] Make API and deployment files more idiomatic for Chicken Scheme.
  - [ ] Write something funny and/or useful using this bindings.
+ - [ ] Adapt all examples to new chicken import functionality
  
 ## Current Raylib version
 

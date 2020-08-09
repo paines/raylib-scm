@@ -1,7 +1,6 @@
-(import (chicken base) scheme (chicken foreign) foreigners)
+(import (chicken base) (chicken foreign) foreigners)
 
-
-(foreign-declare "#include <raylib.h>")
+(import-for-syntax scheme)
 
 (define-foreign-enum-type (blend-mode int)
   (blend-mode->int int->blend-mode)
