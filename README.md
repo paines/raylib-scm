@@ -2,7 +2,6 @@
 
 Chiken Scheme 5 bindings for Raylib Game Library (https://www.raylib.com/, https://github.com/raysan5/raylib).
 
-
 This is a work in progress and so far only basic_window.scm is ported and runable out-of-the-box. This is because since Chicken Scheme Version 5 the import was 
 heavily rewritten and all exmaples must be adapted.
 
