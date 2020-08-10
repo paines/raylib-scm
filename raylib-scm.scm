@@ -4,8 +4,6 @@
 (foreign-declare "#include <raylib.h>
                   #include \"raymath.h\"")
 
-(include "raylib-definitions.scm")
-
 (module raylib-scm
     (;;; Window and Graphics Device Functions (Module: core)
 
@@ -88,7 +86,7 @@
 
      ;; Misc. functions
 
-     set-config-flags                                      ; Setup window configuration flags
+     set-coset-config-flags                                      ; Setup window configuration flags
                                                            ; (view FLAGS)
      set-trace-log-level                                   ; Set the current threshold (minimum)
                                                            ; log level
@@ -665,7 +663,8 @@
      RAYWHITE)
 
   (import (chicken base) scheme (chicken foreign) foreigners (chicken gc) (chicken memory))
-
+ 
+  (include "raylib-definitions.scm")
 
   (include "raylib-macros.scm")
 

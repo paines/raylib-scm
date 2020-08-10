@@ -1,8 +1,9 @@
-(include "raylib-definitions.scm")
-(import defstruct
-        raylib-scm
+(foreign-declare "#include <raylib.h>")
+(include "../../../raylib-definitions.scm")
+(import raylib-scm
+        defstruct
         srfi-1)
-(use format raylib-scm srfi-1)
+
 
 (define max-columns 20)
 
@@ -23,7 +24,7 @@
          (let ((height (get-random-value 1 12)))
            (make-column height: height
                         position: (make-vector-3 (get-random-value -15 15)
-                                                 (/ height 2)
+                                                 (/ height 2.)
                                                  (get-random-value -15 15))
                         color: (make-color (get-random-value 20 255)
                                            (get-random-value 20 255)

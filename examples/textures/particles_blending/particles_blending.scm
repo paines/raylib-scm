@@ -1,11 +1,12 @@
-(include "raylib-definitions.scm")
-(import defstruct
-        raylib-scm
+(foreign-declare "#include <raylib.h>")
+(include "../../../raylib-definitions.scm")
+(import raylib-scm
+        defstruct
+        format
+        srfi-1
         vlist)
-(use defstruct
-     raylib-scm
-     srfi-1
-     vlist)
+
+(import (chicken flonum))
 
 (define screen-width 800)
 (define screen-height 450)
@@ -97,13 +98,13 @@
                                                 (make-rectangle (vector-2-x (particle-position p))
                                                                 (vector-2-y (particle-position p))
                                                                 (* (particle-size p)
-                                                                   smoke-width)
+                                                                   smoke-width 1.0)
                                                                 (* (particle-size p)
-                                                                   smoke-height))
+                                                                   smoke-height 1.0))
                                                 (make-vector-2 (* smoke-width
-                                                                  (/ (particle-size p) 2))
+                                                                  (/ (particle-size p) 2.))
                                                                (* smoke-height
-                                                                  (/ (particle-size p) 2)))
+                                                                  (/ (particle-size p) 2.)))
                                                 (particle-rotation p)
                                                 (fade (particle-color p)
                                                       (particle-alpha p)))))

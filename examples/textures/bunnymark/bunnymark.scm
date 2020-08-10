@@ -1,10 +1,9 @@
-(include "raylib-definitions.scm")
-(import defstruct
-        raylib-scm
+(foreign-declare "#include <raylib.h>")
+(include "../../../raylib-definitions.scm")
+(import raylib-scm
+        defstruct
+        format
         srfi-1)
-(use format
-     raylib-scm
-     srfi-1)
 
 (define screen-width 800)
 (define screen-height 450)
@@ -42,8 +41,8 @@
                                         (make-bunny
                                          position: (get-mouse-position)
                                          speed: (make-vector-2
-                                                   (/ (get-random-value -250 250) 60)
-                                                   (/ (get-random-value -250 250) 60))
+                                                   (/ (get-random-value -250 250) 60.)
+                                                   (/ (get-random-value -250 250) 60.))
                                          color: (make-color (get-random-value 50 240)
                                                             (get-random-value 80 240)
                                                             (get-random-value 100 240)

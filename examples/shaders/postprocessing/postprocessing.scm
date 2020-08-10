@@ -1,11 +1,12 @@
-(include "raylib-definitions.scm")
-(import defstruct
+(foreign-declare "#include <raylib.h>")
+(include "../../../raylib-definitions.scm")
+(import miscmacros
+        regex
+        srfi-1
+        vlist
+        defstruct
         raylib-scm)
-(use miscmacros
-     raylib-scm
-     regex
-     srfi-1
-     vlist)
+
 
 (define screen-width 800)
 (define screen-height 450)

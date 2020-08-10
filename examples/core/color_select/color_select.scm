@@ -1,8 +1,8 @@
-(include "raylib-definitions.scm")
-(import defstruct
-        raylib-scm
+(foreign-declare "#include <raylib.h>")
+(include "../../../raylib-definitions.scm")
+(import raylib-scm
+        defstruct
         srfi-1)
-(use raylib-scm srfi-1)
 
 (define screen-width 800)
 (define screen-height 450)
