@@ -1,7 +1,10 @@
+
+ (define-type config-flag/flag-fullscreen-mode FLAG_FULLSCREEN_MODE)
+
+
 (import (chicken base) (chicken foreign) foreigners)
 
 (import-for-syntax scheme)
-
 (define-foreign-enum-type (blend-mode int)
   (blend-mode->int int->blend-mode)
   ((blend-alpha blend-mode/blend-alpha) BLEND_ALPHA)

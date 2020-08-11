@@ -86,7 +86,8 @@
 
      ;; Misc. functions
 
-     set-coset-config-flags                                      ; Setup window configuration flags
+     set-config-flags     
+     ;config-flag/flag-fullscreen-mode                             ; Setup window configuration flags
                                                            ; (view FLAGS)
      set-trace-log-level                                   ; Set the current threshold (minimum)
                                                            ; log level
@@ -660,11 +661,33 @@
      BLACK
      BLANK
      MAGENTA
-     RAYWHITE)
+     RAYWHITE
+     
+     camera-type/perspective
+     camera-mode/camera-free)
 
   (import (chicken base) scheme (chicken foreign) foreigners (chicken gc) (chicken memory))
- 
-  (include "raylib-definitions.scm")
+
+(define-foreign-record-type (bounding-box BoundingBox))
+(define-foreign-record-type (camera Camera))
+(define-foreign-record-type (color Color))
+(define-foreign-record-type (image Image))
+(define-foreign-record-type (material Material))
+(define-foreign-record-type (material-map MaterialMap))
+(define-foreign-record-type (matrix Matrix))
+(define-foreign-record-type (mesh Mesh))
+(define-foreign-record-type (model Model))
+(define-foreign-record-type (ray Ray))
+(define-foreign-record-type (rectangle Rectangle))
+(define-foreign-record-type (render-texture-2d RenderTexture2D))
+(define-foreign-record-type (shader Shader))
+(define-foreign-record-type (sound Sound))
+(define-foreign-record-type (texture-2d Texture2D))
+(define-foreign-record-type (vector-2 Vector2))
+(define-foreign-record-type (vector-3 Vector3))
+
+(define camera-type/perspective 0)
+(define camera-mode/camera-free 0)
 
   (include "raylib-macros.scm")
 
@@ -687,3 +710,5 @@
   (include "raymath.scm")
 
   (include "raylib-utils.scm"))
+
+

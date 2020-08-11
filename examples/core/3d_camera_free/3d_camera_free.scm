@@ -1,5 +1,3 @@
-(foreign-declare "#include <raylib.h>")
-(include "../../../raylib-definitions.scm")
 (import raylib-scm
         defstruct)
 
