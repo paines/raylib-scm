@@ -10,3 +10,8 @@
   (foreign-lambda void "UpdateCamera" camera))
 
 
+
+(define camera-type/perspective 0)
+(define camera-mode/camera-free 0)
+(define camera-mode/camera-first-person 3)
+

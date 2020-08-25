@@ -1,5 +1,6 @@
 (import raylib-scm
-        defstruct)
+        defstruct
+	srfi-18)
 
 
 (define screen-width 800)
@@ -50,11 +51,15 @@
 
 (init-window screen-width screen-height "raylib [core] example - 3d camera free")
 
-(let ((cur-camera (make-camera (make-vector-3 10.0 10.0 10.0)
-                           (make-vector-3 0.0 0.0 0.0)
-                           (make-vector-3 0.0 1.0 0.0)
-                           45.0
-                           camera-type/perspective)))
-  (set-camera-mode cur-camera camera-mode/camera-free)
-  (set-target-fps 60)
-  (main-loop (make-state camera: cur-camera)))
+(define (cur-camera) (make-camera (make-vector-3 10.0 10.0 10.0)
+				  (make-vector-3 0.0 0.0 0.0)
+				  (make-vector-3 0.0 1.0 0.0)
+				  45.0
+				  camera-type/perspective))
+
+(set-camera-mode cur-camera camera-mode/camera-free)
+(set-target-fps 60)
+
+(define (main)  (main-loop (make-state camera: cur-camera)))
+
+ (define game-thread (thread-start! main))

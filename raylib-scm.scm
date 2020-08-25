@@ -664,7 +664,8 @@
      RAYWHITE
      
      camera-type/perspective
-     camera-mode/camera-free)
+     camera-mode/camera-free
+     camera-mode/camera-first-person)
 
   (import (chicken base) scheme (chicken foreign) foreigners (chicken gc) (chicken memory))
 
@@ -686,8 +687,7 @@
 (define-foreign-record-type (vector-2 Vector2))
 (define-foreign-record-type (vector-3 Vector3))
 
-(define camera-type/perspective 0)
-(define camera-mode/camera-free 0)
+;(define-type mouse-left-button 0)
 
   (include "raylib-macros.scm")
 
